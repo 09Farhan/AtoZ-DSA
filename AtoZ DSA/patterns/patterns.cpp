@@ -233,33 +233,39 @@ void print18(int n){
 }
 void print19(int n){
     int iniS = 0;
-    for(int i=1; i<=2*n; i++){
+    for(int i=0; i<=n; i++){
         //stars
-        if(i>n){
-            for(int j =1; j<=i; j++){
+            for(int j=1; j<=n-i;j++){
                 cout<<"*";
             }
-        }else{
-            for(int j=1; j<=2*n-i;j++){
-                cout<<"*";
-            }
-        }
         //space
-        for(int j=0; j<=iniS; j++){
+        for(int j=0; j<iniS; j++){
             cout<<" ";
         }
-        //stars
-        if(i>n){
-            for(int j =1; j<=i; j++){
-                cout<<"*";
-            }
-        }else{
-            for(int j=1; j<=2*n-i;j++){
-                cout<<"*";
-            }
+        //star
+        for(int j=1; j<=n-i;j++){
+            cout<<"*";
         }
-        if(i>n) iniS -=2;
-        else iniS +=2;
+        
+        iniS +=2;
+        cout<<endl;
+    }
+    iniS = 8;
+    for(int i=1; i<=n; i++){
+        //stars
+            for(int j=1; j<=i;j++){
+                cout<<"*";
+            }
+        //space
+        for(int j=0; j<iniS; j++){
+            cout<<" ";
+        }
+        //star
+        for(int j=1; j<=i;j++){
+            cout<<"*";
+        }
+        
+        iniS -=2;
         cout<<endl;
     }
 }
