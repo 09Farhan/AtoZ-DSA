@@ -5,6 +5,7 @@ using namespace std;
 int main() {
 
     string s;
+    cout<<"Enter the string/characters (only lowercase): ";
     cin >> s;
 
     //precomputing:
@@ -14,9 +15,11 @@ int main() {
     }
 
     int q;
+    cout<<"Enter the number of times you want to search for the strings/characters: ";
     cin >> q;
     while (q--) {
         char c;
+        cout<<"Enter the string/character you want to search for: ";
         cin >> c;
         // fetch:
         cout << hash[c - 'a'] << endl;
