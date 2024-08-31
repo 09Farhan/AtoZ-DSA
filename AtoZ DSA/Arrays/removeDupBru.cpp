@@ -25,7 +25,7 @@ int main(){
     }
     int remove = removeDup(arr,n);
     cout<<"Array after removing duplicates: ";
-    for(int i = 0; i<n; i++){
+    for(int i = 0; i<remove; i++){
         cout<<arr[i]<<" ";
     }
     return 0;
