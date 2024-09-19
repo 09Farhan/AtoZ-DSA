@@ -1,3 +1,4 @@
+//re-arranging the array in alternating positive and negative signs
 #include<bits/stdc++.h>
 using namespace std;
 vector<int> rearrangeBySign(vector<int> &arr, int n ){
