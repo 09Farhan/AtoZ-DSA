@@ -7,7 +7,6 @@ int upperBound(vector<int> &arr, int x, int n) {
 
     while (low <= high) {
         int mid = (low + high) / 2;
-        // maybe an answer
         if (arr[mid] > x) {
             ans = mid;
             high = mid - 1;
@@ -21,8 +20,20 @@ int upperBound(vector<int> &arr, int x, int n) {
 
 int main()
 {
-    vector<int> arr = {3, 5, 8, 9, 15, 19};
-    int n = 6, x = 9;
+    int n;
+    cout<<"Enter the number of elements in the array: ";
+    cin>>n;
+
+    vector<int> arr(n);
+    cout<<"Enter the elements of the array: ";
+    for(int i = 0; i<n; i++){
+        cin>>arr[i];
+    }
+
+    int x;
+    cout<<"Enter the number to find the upper bound: ";
+    cin>>x;
+    
     int ind = upperBound(arr, x, n);
     cout << "The upper bound is the index: " << ind << "\n";
     return 0;
