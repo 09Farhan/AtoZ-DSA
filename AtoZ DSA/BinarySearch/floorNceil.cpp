@@ -33,12 +33,6 @@ int findCeil(int arr[], int n, int x){
     return ans;
 }
 
-pair<int, int> getFloorAndCeil(int arr[], int n, int x){
-    int f = findFloor(arr,n, x);
-    int c = findCeil(arr, n , x);
-    return make_pair(f,c);
-}
-
 int main(){
     int n;
     cout<<"Enter the number of elements in the array : ";
@@ -54,7 +48,9 @@ int main(){
     cout<<"Enter the element to find the floor and ceiling for: ";
     cin>>x;
 
-    pair<int, int> ans =  getFloorAndCeil(arr,n,x);
-    cout<<"The floor of "<<x<<" is "<<ans.first<<" and the ceiling of "<<x<<" is "<<ans.second<<endl;
+    int floor = findFloor(arr, n, x);
+    int ceil = findCeil(arr, n, x);
+    
+    cout<<"The floor of "<<x<<" is "<<floor<<" and the ceiling of "<<x<<" is "<<ceil<<endl;
     return 0;
 }
