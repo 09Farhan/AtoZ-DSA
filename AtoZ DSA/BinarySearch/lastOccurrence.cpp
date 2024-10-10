@@ -1,25 +1,55 @@
-/*Given a sorted array of N integers, write a program to find the index of 
-the last occurrence of the target key. If the target is not found then return -1.*/
-
 #include<bits/stdc++.h>
 using namespace std;
 
-int lastOccur(vector<int> &arr, int n, int target){
-    int low = 0, high = n-1;
-    int ans = -1;
+int firstOccurrence(vector<int> &arr, int n, int k) {
+    int low = 0, high = n - 1;
+    int first = -1;
 
-    while(low <= high){
-        int mid = (low + high)/2;
-        if(arr[mid] == target){
-            ans = mid;
-            low = mid + 1;
-        }else if(target < arr[mid]){
-            high = mid -1;
-        }else{
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        if (arr[mid] == k) {
+            first = mid;
+            high = mid - 1;
+        }
+        else if (arr[mid] < k) {
             low = mid + 1;
         }
+        else {
+            high = mid - 1;
+        }
     }
-    return ans;
+    return first;
+}
+
+int lastOccurrence(vector<int> &arr, int n, int k) {
+    int low = 0, high = n - 1;
+    int last = -1;
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        if (arr[mid] == k) {
+            last = mid;
+            low = mid + 1;
+        }
+        else if (arr[mid] < k) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return last;
+}
+
+
+pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k) {
+    int first = firstOccurrence(arr, n, k);
+    if (first == -1) {
+        return { -1, -1};
+        cout<<"Element not found in the array.";
+    }
+    int last = lastOccurrence(arr, n, k);
+    return {first, last};
 }
 
 int main(){
@@ -36,11 +66,7 @@ int main(){
     cout<<"Enter the target to find the last occurrence of: ";
     cin>>x;
 
-    int ind = lastOccur(arr, n , x);
-    if(ind == -1){
-        cout<<"Element not found in the array.";
-    }else{
-    cout<<"The last occurrence of the target element is: "<<ind<<endl;
-    }
+    pair<int, int> ind =  firstAndLastPosition(arr, n, x);
+    cout<<"The first and last occurrence of the target element is: "<<ind.first<<", "<<ind.second <<endl;
     return 0;
 }
