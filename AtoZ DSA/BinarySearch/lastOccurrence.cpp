@@ -46,7 +46,6 @@ pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k) {
     int first = firstOccurrence(arr, n, k);
     if (first == -1) {
         return { -1, -1};
-        cout<<"Element not found in the array.";
     }
     int last = lastOccurrence(arr, n, k);
     return {first, last};
@@ -67,6 +66,10 @@ int main(){
     cin>>x;
 
     pair<int, int> ind =  firstAndLastPosition(arr, n, x);
+    if(ind.first && ind.second != -1){
     cout<<"The first and last occurrence of the target element is: "<<ind.first<<", "<<ind.second <<endl;
+    }else{
+        cout<<"The target element is not found in the array.";
+    }
     return 0;
 }
