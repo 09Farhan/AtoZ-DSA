@@ -1,3 +1,6 @@
+/* Given an array of N integers. Every number in the array except one appears twice. 
+Find the single number in the array.*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
