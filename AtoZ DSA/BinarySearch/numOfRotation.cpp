@@ -2,7 +2,35 @@
 using namespace std;
 
 int numOfRotation(vector<int> &arr, int n){
-    
+    int low = 0, high = n - 1;
+    int ans = INT_MAX;
+    int ind = -1;
+
+    while(low <= high){
+        int mid = (low + high)/2;
+
+        if(arr[low] <= arr[high]){
+            if(arr[low] < ans){
+                ind = low;
+                ans = arr[low];
+            }
+            break;
+        }
+        if(arr[low] <= arr[mid]){
+            if(arr[low] < ans){
+                ind = low;
+                ans = arr[low];
+            }
+            low = mid + 1;
+        }else{
+            if(arr[mid] < ans){
+                ind = mid;
+                ans = arr[mid];
+            }
+            high = mid - 1;
+        }
+    }
+    return ind;
 }
 
 int main(){
@@ -18,7 +46,7 @@ int main(){
 
     int ans = numOfRotation(arr, n);
 
-    cout<<"Number of times the array has been rotated is: "<<ans<<endl;
+    cout<<"The array is rotated "<< ans <<" times."<<endl;
 
     return 0;
 
