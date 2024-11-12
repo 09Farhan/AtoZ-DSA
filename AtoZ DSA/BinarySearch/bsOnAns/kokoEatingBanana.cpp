@@ -15,7 +15,20 @@ int calculateTotalHours(vector<int> &v, int n, int hourly){
 }
 
 int minRateToEatBanana(vector<int> &arr, int n, int h){
+     int low = 1, high = findMax(v);
 
+    while(low <= high){
+        int mid = (low + high) / 2;
+
+        int totalH = calculateTotalHours(v, mid);
+
+        if(totalH <= h){
+            high = mid - 1;
+        }else{
+            low = mid + 1;
+        }
+    }
+    return low;
 }
 
 int main(){
