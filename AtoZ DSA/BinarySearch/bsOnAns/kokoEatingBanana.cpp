@@ -6,7 +6,12 @@ int findMax(vector<int> &v, int n){
 }
 
 int calculateTotalHours(vector<int> &v, int n, int hourly){
+    int totalH = 0;
 
+    for(int i = 0; i<n; i++){
+        totalH += ceil((double)(v[i]) / (double)(hourly));
+    }
+    return totalH;
 }
 
 int minRateToEatBanana(vector<int> &arr, int n, int h){
