@@ -2,7 +2,19 @@
 using namespace std;
 
 bool possible(vector<int> &arr, int day, int m, int k){
-
+    int n = arr.size();
+    int cnt = 0;
+    int noOfB = 0;
+    for(int i = 0; i<n; i++){
+        if(arr[i] <= day){
+            cnt++;
+        }else{
+            noOfB += (cnt/k);
+            cnt = 0;
+        }
+    }
+    noOfB += (cnt/k);
+    return noOfB >= m;
 }
 
 
